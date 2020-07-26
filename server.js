@@ -14,6 +14,21 @@ app.get('/test',function(req,res){
     res.send('Hello you hit me! '+username);
 })
 
+app.get('/homework',function(req,res){
+    var resp = ""
+    let accounts = [
+        { id: 1 , name: 'alex' , deposit: 5 },
+        { id: 2 , name: 'sarah' , deposit: 5 },
+        { id: 3 , name: 'jim' , deposit: 15 }
+    ]
+    for(let obj of accounts)
+        for(let key in obj){
+            resp += key + ": "
+            resp += obj[key] + "<br/>\n"
+        }
+    res.send('The result is:<br/>\n' + resp)
+})
+
 app.get('/adder',function(req,res){
     var num1=parseInt(req.query.num1);
     var num2=parseInt(req.query.num2);
